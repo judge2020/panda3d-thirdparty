@@ -11,5 +11,5 @@ jobs:
         run: |
           mkdir build
           cd build
-          cmake -DCMAKE_BUILD_TYPE=Release -G"MinGW Makefiles" ..
+          cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_TOOLCHAIN_FILE=~/mingw-w64-x86_64.cmake ..
           cmake --build . --config Release -j4
