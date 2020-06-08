@@ -48,10 +48,8 @@ option(BUILD_OPENEXR "Build OpenEXR" ${DEFAULT_ENABLE})
 option(BUILD_FFMPEG "Build FFMpeg (requires vorbis, freetype and zlib)" ${DEFAULT_ENABLE})
 
 
-if(CMAKE_GENERATOR MATCHES "^Visual Studio [0-9]+ ")
-  string(REPLACE " " ";" WORDS ${CMAKE_GENERATOR})
-  list(GET WORDS 2 VCVER)
-  set(THIRDPARTY_DIR ${CMAKE_SOURCE_DIR}/win-libs-vc${VCVER})
+if(CMAKE_SYSTEM_NAME STREQUAL "Windows")
+  set(THIRDPARTY_DIR ${CMAKE_SOURCE_DIR}/win-libs-vc14)
 
   if(CMAKE_SIZEOF_VOID_P EQUAL 8)
     set(THIRDPARTY_DIR "${THIRDPARTY_DIR}-x64")
